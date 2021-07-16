@@ -18,9 +18,9 @@ class DashboardController extends CI_Controller
         }
     }
 
-    private $jumlahindikator = 0;
-    private $jumlahvariabel = 0;
-    private $jumlahpegawai = 0;
+    private $jumlahindikator = null;
+    private $jumlahvariabel = null;
+    private $jumlahpegawai = null;
 
     public function index()
     {

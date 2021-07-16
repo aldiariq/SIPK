@@ -25,13 +25,13 @@ class UserController extends CI_Controller
 		$this->load->model('UserModel');
 	}
 
-	private $username = '';
-	private $password = '';
+	private $username = null;
+	private $password = null;
 
 	private $Idpegawai = null;
-	private $passwordlama = '';
-	private $passwordbaru = '';
-	private $passwordbaru2 = '';
+	private $passwordlama = null;
+	private $passwordbaru = null;
+	private $passwordbaru2 = null;
 
 	public function login()
 	{

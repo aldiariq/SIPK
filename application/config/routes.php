@@ -61,3 +61,6 @@ $route['dashboard'] = 'DashboardController/index';
 
 $route['ubahpassword'] = 'UserController/ubahpassword';
 $route['aksiubahpassword'] = 'UserController/aksiubahpassword';
+
+$route['ubahprofil'] = 'PegawaiController/ubahprofil';
+$route['aksiubahprofil'] = 'PegawaiController/aksiubahprofil';

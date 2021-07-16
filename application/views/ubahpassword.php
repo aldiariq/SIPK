@@ -67,7 +67,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="p-5">
-                                <form action="<?php echo base_url('aksiubahpassword') ?>" method="POST" class="user">
+                                <form action="<?php echo base_url('aksiubahpassword') ?>" method="POST">
                                     <div class="form-group">
                                         <input type="password" name="passwordlama" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password Lama">
                                     </div>

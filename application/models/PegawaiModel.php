@@ -13,6 +13,17 @@ class PegawaiModel extends CI_Model
         $pegawai = $this->db->get();
         return $pegawai->num_rows();
     }
+
+    public function aksiubahprofil($data_profil)
+    {
+        $this->db->where(['Idpegawai' => $data_profil['Idpegawai']]);
+        $this->db->update('Pegawai', $data_profil);
+        if ($this->db->affected_rows()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 /* End of file PegawaiModel.php */
