@@ -58,3 +58,6 @@ $route['aksilogin'] = 'UserController/aksilogin';
 $route['aksilogout'] = 'UserController/aksilogout';
 
 $route['dashboard'] = 'DashboardController/index';
+
+$route['ubahpassword'] = 'UserController/ubahpassword';
+$route['aksiubahpassword'] = 'UserController/aksiubahpassword';

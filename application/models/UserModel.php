@@ -19,6 +19,26 @@ class UserModel extends CI_Model
         $cari_pegawai = $this->db->get();
         return $cari_pegawai;
     }
+
+    public function aksiubahpassword($data_ubahpassword)
+    {
+        $cari_user = $this->db->get_where('User', ['Idpegawai' => $data_ubahpassword['Idpegawai']]);
+        $cari_user = $cari_user->result_array();
+        
+        foreach ($cari_user as $data) {
+            if ($data['Password'] == $data_ubahpassword['passwordlama']) {
+                $this->db->where(['Idpegawai' => $data_ubahpassword['Idpegawai']]);
+                $this->db->update('User', ['Password' => $data_ubahpassword['passwordbaru']]); 
+                if ($this->db->affected_rows()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+    }
 }
 
 /* End of file User.php */

@@ -28,6 +28,11 @@ class UserController extends CI_Controller
 	private $username = '';
 	private $password = '';
 
+	private $Idpegawai = null;
+	private $passwordlama = '';
+	private $passwordbaru = '';
+	private $passwordbaru2 = '';
+
 	public function login()
 	{
 		$this->load->view('login');
@@ -76,11 +81,11 @@ class UserController extends CI_Controller
 				redirect('dashboard', 'refresh');
 			} else {
 				$this->tampilPeringatan("Gagal Login");
-				redirect('login', 'refresh');
 			}
 		} else {
 			$this->tampilPeringatan("Pastikan Inputan Terisi");
 		}
+		redirect('login', 'refresh');
 	}
 
 	public function aksilogout()
@@ -90,8 +95,63 @@ class UserController extends CI_Controller
 		redirect('login', 'refresh');
 	}
 
+	public function ubahpassword()
+	{
+		if ($this->cekStatuslogin()) {
+			$this->load->view('ubahpassword');
+		} else {
+			$this->tampilPeringatan("Pastikan Sudah Melakukan Login");
+			redirect('login', 'refresh');
+		}
+	}
+
+	public function aksiubahpassword()
+	{
+		
+		$this->Idpegawai = $this->session->userdata('Idpegawai');
+		$this->passwordlama = $this->input->post('passwordlama');
+		$this->passwordbaru = $this->input->post('passwordbaru');
+		$this->passwordbaru2 = $this->input->post('passwordbaru2');
+
+		if (isset($this->passwordlama) && isset($this->passwordbaru) && isset($this->passwordbaru2)) {
+			if ($this->passwordbaru == $this->passwordbaru2) {
+				$data_ubahpassword = array(
+					'Idpegawai' => $this->Idpegawai,
+					'passwordlama' => md5($this->passwordlama),
+					'passwordbaru' => md5($this->passwordbaru)
+				);
+
+				$status_ubahpassword = $this->UserModel->aksiubahpassword($data_ubahpassword);
+
+				if ($status_ubahpassword) {
+					$this->tampilPeringatan("Berhasil Mengubah Password");
+					$this->aksilogout();
+				} else {
+					$this->tampilPeringatan("Gagal Mengubah Password");
+				}
+				
+			} else {
+				$this->tampilPeringatan("Pastikan Password Baru Sama");
+			}
+			
+		} else {
+			$this->tampilPeringatan("Pastikan Inputan Terisi");
+		}
+		
+		redirect('ubahpassword','refresh');
+	}
+
 	public function tampilPeringatan($isiPeringatan)
 	{
 		echo "<script>alert('" . $isiPeringatan . "');</script>";
+	}
+
+	public function cekStatuslogin()
+	{
+		if (!$this->session->userdata('status_login')) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 }
