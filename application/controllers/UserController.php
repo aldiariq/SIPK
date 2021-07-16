@@ -73,6 +73,7 @@ class UserController extends CI_Controller
 
 				$this->session->set_userdata($data_session);
 				$this->tampilPeringatan("Berhasil Login");
+				redirect('dashboard', 'refresh');
 			} else {
 				$this->tampilPeringatan("Gagal Login");
 				redirect('login', 'refresh');

@@ -56,3 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'UserController/login';
 $route['aksilogin'] = 'UserController/aksilogin';
 $route['aksilogout'] = 'UserController/aksilogout';
+
+$route['dashboard'] = 'DashboardController/index';
