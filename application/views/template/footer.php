@@ -36,6 +36,24 @@
             <script src="<?php echo base_url('assets/assetsdashboard/js/demo/chart-area-demo.js') ?>"></script>
             <script src="<?php echo base_url('assets/assetsdashboard/js/demo/chart-pie-demo.js') ?>"></script>
 
+            <!-- Page level plugins -->
+            <script src="<?php echo base_url('assets/assetsdashboard/vendor/datatables/jquery.dataTables.min.js') ?>"></script>
+            <script src="<?php echo base_url('assets/assetsdashboard/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
+
+            <script>
+                $(document).ready(function() {
+                    $('#tabelPegawai').DataTable();
+                });
+
+                $(document).ready(function() {
+                    $('#tabelIndikator').DataTable();
+                });
+
+                $(document).ready(function() {
+                    $('#tabelVariabel').DataTable();
+                });
+            </script>
+
             </body>
 
             </html>

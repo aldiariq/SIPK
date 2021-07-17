@@ -69,13 +69,13 @@
                             <div class="p-5">
                                 <form action="<?php echo base_url('aksiubahpassword') ?>" method="POST">
                                     <div class="form-group">
-                                        <input type="password" name="passwordlama" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password Lama">
+                                        <input type="password" name="passwordlama" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password Lama" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="passwordbaru" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password Baru">
+                                        <input type="password" name="passwordbaru" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password Baru" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="passwordbaru2" class="form-control form-control-user" id="exampleInputPassword" placeholder="Ulangi Password Baru">
+                                        <input type="password" name="passwordbaru2" class="form-control form-control-user" id="exampleInputPassword" placeholder="Ulangi Password Baru" required>
                                     </div>
                                     <button class="btn btn-primary btn-user btn-block">
                                         Simpan Password

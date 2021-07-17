@@ -53,14 +53,27 @@ $route['default_controller'] = 'UserController/login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//Autentikasi
 $route['login'] = 'UserController/login';
 $route['aksilogin'] = 'UserController/aksilogin';
 $route['aksilogout'] = 'UserController/aksilogout';
 
+//Menu Dashboard
 $route['dashboard'] = 'DashboardController/index';
 
+//Menu Ubah Password
 $route['ubahpassword'] = 'UserController/ubahpassword';
 $route['aksiubahpassword'] = 'UserController/aksiubahpassword';
 
+//Menu Ubah Profil
 $route['ubahprofil'] = 'PegawaiController/ubahprofil';
 $route['aksiubahprofil'] = 'PegawaiController/aksiubahprofil';
+
+//Menu Pegawai
+$route['pegawai'] = 'PegawaiController/pegawai';
+$route['lihatpegawai/(:any)'] = 'PegawaiController/lihatpegawai/(:any)';
+$route['aksitambahpegawai'] = 'PegawaiController/aksitambahpegawai';
+$route['aksihapuspegawai/(:any)'] = 'PegawaiController/aksihapuspegawai/(:any)';
+$route['aksiubahpegawai/(:any)'] = 'PegawaiController/aksiubahpegawai/(:any)';
+
+

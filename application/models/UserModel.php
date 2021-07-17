@@ -24,12 +24,14 @@ class UserModel extends CI_Model
     {
         $cari_user = $this->db->get_where('User', ['Idpegawai' => $data_ubahpassword['Idpegawai']]);
         $cari_user = $cari_user->result_array();
-        
+
         foreach ($cari_user as $data) {
             if ($data['Password'] == $data_ubahpassword['passwordlama']) {
+                $this->db->trans_begin();
                 $this->db->where(['Idpegawai' => $data_ubahpassword['Idpegawai']]);
-                $this->db->update('User', ['Password' => $data_ubahpassword['passwordbaru']]); 
-                if ($this->db->affected_rows()) {
+                $this->db->update('User', ['Password' => $data_ubahpassword['passwordbaru']]);
+                $this->db->trans_complete();
+                if ($this->db->trans_status()) {
                     return true;
                 } else {
                     return false;
@@ -37,6 +39,18 @@ class UserModel extends CI_Model
             } else {
                 return false;
             }
+        }
+    }
+
+    public function tambahuser($datauser)
+    {
+        $this->db->trans_begin();
+        $this->db->insert('User', $datauser);
+        $this->db->trans_complete();
+        if ($this->db->trans_status()) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
