@@ -114,16 +114,6 @@
                                                     } ?> value="PEGAWAI HONORER">PEGAWAI HONORER</option>
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <select class="form-control" name="idjabatan" id="exampleFormControlSelect1" required>
-                                            <option value="">Jabatan</option>
-                                            <?php foreach ($jabatan as $data) { ?>
-                                                <option <?php if ($this->session->userdata('Jabatan') == $data['Jabatan']) {
-                                                            echo 'selected';
-                                                        } ?> value="<?php echo $data['Idjabatan'] ?>"><?php echo $data['Jabatan'] ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
                                     <button class="btn btn-primary btn-user btn-block">
                                         Simpan Profil
                                     </button>

@@ -70,9 +70,9 @@ class VariabelController extends CI_Controller
         );
         $status_variabel = $this->VariabelModel->aksiubahvariabel($data_variabel);
         if ($status_variabel) {
-            $this->tampilPeringatan("Berhasil Menghapus Variabel");
+            $this->tampilPeringatan("Berhasil Mengubah Variabel");
         } else {
-            $this->tampilPeringatan("Gagal Menghapus Variabel");
+            $this->tampilPeringatan("Gagal Mengubah Variabel");
         }
 
         redirect('variabel', 'refresh');

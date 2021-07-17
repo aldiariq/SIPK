@@ -48,8 +48,7 @@ class PegawaiController extends CI_Controller
 
     public function ubahprofil()
     {
-        $data_profil = array('jabatan' => $this->JabatanModel->ambildataJabatan());
-        $this->load->view('ubahprofil', $data_profil);
+        $this->load->view('ubahprofil');
     }
 
     public function aksiubahprofil()
@@ -65,7 +64,6 @@ class PegawaiController extends CI_Controller
         $this->Agama = $this->input->post('agama');
         $this->Notelepon = $this->input->post('notelepon');
         $this->Status = $this->input->post('status');
-        $this->Idjabatan = $this->input->post('idjabatan');
 
         $data_profil = array(
             'Idpegawai' => $this->Idpegawai,
@@ -78,8 +76,7 @@ class PegawaiController extends CI_Controller
             'Nokartuidentitas' => $this->Nokartuidentitas,
             'Agama' => $this->Agama,
             'Notelepon' => $this->Notelepon,
-            'Status' => $this->Status,
-            'Idjabatan' => $this->Idjabatan
+            'Status' => $this->Status
         );
 
         $status_ubahprofil = $this->PegawaiModel->aksiubahprofil($data_profil);
