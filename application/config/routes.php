@@ -76,4 +76,9 @@ $route['aksitambahpegawai'] = 'PegawaiController/aksitambahpegawai';
 $route['aksihapuspegawai/(:any)'] = 'PegawaiController/aksihapuspegawai/(:any)';
 $route['aksiubahpegawai/(:any)'] = 'PegawaiController/aksiubahpegawai/(:any)';
 
-
+//Menu Variabel
+$route['variabel'] = 'VariabelController/variabel';
+$route['lihatvariabel/(:any)'] = 'VariabelController/lihatvariabel/(:any)';
+$route['aksitambahvariabel'] = 'VariabelController/aksitambahvariabel';
+$route['aksihapusvariabel/(:any)'] = 'VariabelController/aksihapusvariabel/(:any)';
+$route['aksiubahvariabel/(:any)'] = 'VariabelController/aksiubahvariabel/(:any)';

@@ -49,8 +49,10 @@ class PegawaiModel extends CI_Model
 
     public function aksitambahpegawai($data_pegawai)
     {
+        $this->db->trans_begin();
         $this->db->insert('Pegawai', $data_pegawai);
-        if ($this->db->affected_rows()) {
+        $this->db->trans_complete();
+        if ($this->db->trans_status()) {
             return true;
         } else {
             return false;

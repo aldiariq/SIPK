@@ -201,7 +201,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" onclick="kosongkanForm()" type="button" data-dismiss="modal">Batal</button>
+                                <button class="btn btn-secondary" onclick="kosongkanForm('<?php echo base_url() ?>')" type="button" data-dismiss="modal">Batal</button>
                                 <button class="btn btn-primary btn-user">Simpan</button>
                             </div>
                         </div>
@@ -231,7 +231,8 @@
                     });
                 }
 
-                function kosongkanForm() {
+                function kosongkanForm(url) {
+                    document.getElementById('formPegawai').action = url + 'aksitambahpegawai'
                     document.getElementsByName("namapegawai")[0].value = "";
                     document.getElementsByName("alamat")[0].value = "";
                     document.getElementsByName("jeniskelamin")[0].value = "";
