@@ -64,27 +64,43 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item <?php if ($this->uri->segment(1) == 'pegawai' || $this->uri->segment(1) == 'penilaianpegawai') {
-                            echo "active";
-                        } ?>">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Pegawai</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <?php
-                if ($this->session->userdata('Jabatan') == 'ADMIN' || $this->session->userdata('Jabatan') == 'DIREKTUR') {
-                ?>
-                    <a class="collapse-item" href="<?php echo base_url('pegawai') ?>">Data Pegawai</a>
-                <?php
-                }
-                ?>
-                <a class="collapse-item" href="<?php echo base_url('penilaianpegawai') ?>">Penilaian Pegawai</a>
+    <?php
+    if ($this->session->userdata('Jabatan') == 'ADMIN' || $this->session->userdata('Jabatan') == 'DIREKTUR') {
+    ?>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item <?php if ($this->uri->segment(1) == 'pegawai' || $this->uri->segment(1) == 'penilaianpegawai') {
+                                echo "active";
+                            } ?>">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Pegawai</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <?php
+                    if ($this->session->userdata('Jabatan') == 'ADMIN' || $this->session->userdata('Jabatan') == 'DIREKTUR') {
+                    ?>
+                        <a class="collapse-item" href="<?php echo base_url('pegawai') ?>">Data Pegawai</a>
+                    <?php
+                    }
+                    ?>
+                    <a class="collapse-item" href="<?php echo base_url('penilaianpegawai') ?>">Penilaian Pegawai</a>
+                </div>
             </div>
-        </div>
-    </li>
+        </li>
+    <?php
+    } else {
+    ?>
+        <!-- Nav Item - Charts -->
+        <li class="nav-item <?php if ($this->uri->segment(1) == 'penilaianpegawai') {
+                                echo "active";
+                            } ?>">
+            <a class="nav-link" href="<?php echo base_url('penilaianpegawai') ?>">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Penilaian Pegawai</span></a>
+        </li>
+
+    <?php } ?>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
