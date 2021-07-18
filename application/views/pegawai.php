@@ -71,9 +71,9 @@
                             <?php
                             if ($this->session->userdata('Jabatan') == 'ADMIN') {
                             ?>
-                            <button class="btn btn-primary btn-user btn-block mb-3" data-toggle="modal" data-target="#modalPegawai">
-                                Tambah Pegawai
-                            </button>
+                                <button class="btn btn-primary btn-user btn-block mb-3" data-toggle="modal" data-target="#modalPegawai">
+                                    Tambah Pegawai
+                                </button>
                             <?php } ?>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="tabelPegawai" width="100%" cellspacing="0">
@@ -90,7 +90,11 @@
                                             <th>No Telepon</th>
                                             <th>Status</th>
                                             <th>Jabatan</th>
-                                            <th>Aksi</th>
+                                            <?php
+                                            if ($this->session->userdata('Jabatan') == 'ADMIN') {
+                                            ?>
+                                                <th>Aksi</th>
+                                            <?php } ?>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -106,7 +110,11 @@
                                             <th>No Telepon</th>
                                             <th>Status</th>
                                             <th>Jabatan</th>
-                                            <th>Aksi</th>
+                                            <?php
+                                            if ($this->session->userdata('Jabatan') == 'ADMIN') {
+                                            ?>
+                                                <th>Aksi</th>
+                                            <?php } ?>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -123,14 +131,18 @@
                                                 <td><?= $data['Notelepon'] ?></td>
                                                 <td><?= $data['Status'] ?></td>
                                                 <td><?= $data['Jabatan'] ?></td>
-                                                <td>
-                                                    <a href="#" onclick="isiForm('<?= base_url('') ?>','<?= $data['Idpegawai'] ?>')" data-toggle="modal" data-target="#modalPegawai" role="button">
-                                                        <i class="fas fa-pen"></i>
-                                                    </a>
-                                                    <a href="<?php echo base_url('aksihapuspegawai/' . $data['Idpegawai']) ?>" role="button">
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
-                                                </td>
+                                                <?php
+                                                if ($this->session->userdata('Jabatan') == 'ADMIN') {
+                                                ?>
+                                                    <td>
+                                                        <a href="#" onclick="isiForm('<?= base_url('') ?>','<?= $data['Idpegawai'] ?>')" data-toggle="modal" data-target="#modalPegawai" role="button">
+                                                            <i class="fas fa-pen"></i>
+                                                        </a>
+                                                        <a href="<?php echo base_url('aksihapuspegawai/' . $data['Idpegawai']) ?>" role="button">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </td>
+                                                <?php } ?>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
