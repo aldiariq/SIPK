@@ -190,7 +190,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" name="idjabatan" id="exampleFormControlSelect1" required>
+                                            <select class="form-control" name="idjabatan" required>
                                                 <option value="">Jabatan</option>
                                                 <?php foreach ($jabatan as $data) { ?>
                                                     <option value="<?php echo $data['Idjabatan'] ?>"><?php echo $data['Jabatan'] ?></option>

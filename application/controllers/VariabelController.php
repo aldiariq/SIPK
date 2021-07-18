@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class VariabelController extends CI_Controller
 {
-
     private $Idvariabel = null;
     private $Namavariabel = null;
 

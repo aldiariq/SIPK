@@ -82,3 +82,10 @@ $route['lihatvariabel/(:any)'] = 'VariabelController/lihatvariabel/(:any)';
 $route['aksitambahvariabel'] = 'VariabelController/aksitambahvariabel';
 $route['aksihapusvariabel/(:any)'] = 'VariabelController/aksihapusvariabel/(:any)';
 $route['aksiubahvariabel/(:any)'] = 'VariabelController/aksiubahvariabel/(:any)';
+
+//Menu Variabel
+$route['indikator'] = 'IndikatorController/indikator';
+$route['lihatindikator/(:any)'] = 'IndikatorController/lihatindikator/(:any)';
+$route['aksitambahindikator'] = 'IndikatorController/aksitambahindikator';
+$route['aksihapusindikator/(:any)'] = 'IndikatorController/aksihapusindikator/(:any)';
+$route['aksiubahindikator/(:any)'] = 'IndikatorController/aksiubahindikator/(:any)';
