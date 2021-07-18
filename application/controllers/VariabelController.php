@@ -26,7 +26,7 @@ class VariabelController extends CI_Controller
 
     public function aksitambahvariabel()
     {
-        $this->Namavariabel = $this->input->post('namavariabel');
+        $this->Namavariabel = strtoupper($this->input->post('namavariabel'));
         $data_variabel = array('Namavariabel' => $this->Namavariabel);
         $status_variabel = $this->VariabelModel->aksitambahvariabel($data_variabel);
 
@@ -62,7 +62,7 @@ class VariabelController extends CI_Controller
     public function aksiubahvariabel()
     {
         $this->Idvariabel = (int)$this->uri->segment(2);
-        $this->Namavariabel = $this->input->post('namavariabel');
+        $this->Namavariabel = strtoupper($this->input->post('namavariabel'));
         $data_variabel = array(
             'Idvariabel' => $this->Idvariabel,
             'Namavariabel' => $this->Namavariabel

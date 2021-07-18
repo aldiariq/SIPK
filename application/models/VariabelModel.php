@@ -5,7 +5,7 @@ class VariabelModel extends CI_Model
 {
     public function jumlahVariabel()
     {
-        $variabel = $this->db->get('Indikator');
+        $variabel = $this->db->get('Variabel');
         return $variabel->num_rows();
     }
 

@@ -35,7 +35,7 @@ class IndikatorController extends CI_Controller
 
     public function aksitambahindikator()
     {
-        $this->Namaindikator = $this->input->post('namaindikator');
+        $this->Namaindikator = strtoupper($this->input->post('namaindikator'));
         $this->Bobotindikator = $this->input->post('bobotindikator');
         $this->Nilaipembanding = $this->input->post('nilaipembanding');
         $this->Idvariabel = $this->input->post('idvariabel');
@@ -81,7 +81,7 @@ class IndikatorController extends CI_Controller
     public function aksiubahindikator()
     {
         $this->Idindikator = (int)$this->uri->segment(2);
-        $this->Namaindikator = $this->input->post('namaindikator');
+        $this->Namaindikator = strtoupper($this->input->post('namaindikator'));
         $this->Bobotindikator = $this->input->post('bobotindikator');
         $this->Nilaipembanding = $this->input->post('nilaipembanding');
         $this->Idvariabel = $this->input->post('idvariabel');

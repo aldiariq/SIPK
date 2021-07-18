@@ -76,8 +76,8 @@
                                     <thead>
                                         <tr>
                                             <th>Nama Indikator</th>
-                                            <th>Nilai Pembanding</th>
                                             <th>Bobot (%)</th>
+                                            <th>Nilai Pembanding</th>
                                             <th>Nama Variabel</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -85,8 +85,8 @@
                                     <tfoot>
                                         <tr>
                                             <th>Nama Indikator</th>
-                                            <th>Nilai Pembanding</th>
                                             <th>Bobot (%)</th>
+                                            <th>Nilai Pembanding</th>
                                             <th>Nama Variabel</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -95,8 +95,8 @@
                                         <?php foreach ($indikator as $data) { ?>
                                             <tr>
                                                 <td><?= $data['Namaindikator'] ?></td>
-                                                <td><?= $data['Nilaipembanding'] ?></td>
                                                 <td><?= $data['Bobotindikator'] ?></td>
+                                                <td><?= $data['Nilaipembanding'] ?></td>
                                                 <td><?= $data['Namavariabel'] ?></td>
                                                 <td>
                                                     <a href="#" onclick="isiForm('<?= base_url('') ?>','<?= $data['Idindikator'] ?>')" data-toggle="modal" data-target="#modalIndikator" role="button">
