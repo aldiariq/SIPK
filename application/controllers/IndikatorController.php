@@ -22,17 +22,6 @@ class IndikatorController extends CI_Controller
     private $Nilaipembanding = null;
     private $Idvariabel = null;
 
-    public function indikator()
-    {
-        $indikator = $this->IndikatorModel->ambildataIndikator();
-        $variabel = $this->VariabelModel->ambildataVariabel();
-        $data_indikator = array(
-            'indikator' => $indikator,
-            'variabel' => $variabel
-        );
-        $this->load->view('indikator', $data_indikator);
-    }
-
     public function aksitambahindikator()
     {
         $this->Namaindikator = strtoupper($this->input->post('namaindikator'));
@@ -58,17 +47,15 @@ class IndikatorController extends CI_Controller
         redirect('indikator', 'refresh');
     }
 
-    public function aksihapusindikator()
+    public function indikator()
     {
-        $this->Idindikator = (int)$this->uri->segment(2);
-        $status_variabel = $this->IndikatorModel->aksihapusindikator($this->Idindikator);
-        if ($status_variabel) {
-            $this->tampilPeringatan("Berhasil Menghapus Indikator");
-        } else {
-            $this->tampilPeringatan("Gagal Menghapus Indikator");
-        }
-
-        redirect('indikator', 'refresh');
+        $indikator = $this->IndikatorModel->ambildataIndikator();
+        $variabel = $this->VariabelModel->ambildataVariabel();
+        $data_indikator = array(
+            'indikator' => $indikator,
+            'variabel' => $variabel
+        );
+        $this->load->view('indikator', $data_indikator);
     }
 
     public function lihatindikator()
@@ -101,6 +88,19 @@ class IndikatorController extends CI_Controller
         } else {
             $this->tampilPeringatan("Gagal Merubah Indikator");
         }
+        redirect('indikator', 'refresh');
+    }
+
+    public function aksihapusindikator()
+    {
+        $this->Idindikator = (int)$this->uri->segment(2);
+        $status_variabel = $this->IndikatorModel->aksihapusindikator($this->Idindikator);
+        if ($status_variabel) {
+            $this->tampilPeringatan("Berhasil Menghapus Indikator");
+        } else {
+            $this->tampilPeringatan("Gagal Menghapus Indikator");
+        }
+
         redirect('indikator', 'refresh');
     }
 

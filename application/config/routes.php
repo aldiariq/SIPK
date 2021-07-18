@@ -59,7 +59,7 @@ $route['aksilogin'] = 'UserController/aksilogin';
 $route['aksilogout'] = 'UserController/aksilogout';
 
 //Menu Dashboard
-$route['dashboard'] = 'DashboardController/index';
+$route['dashboard'] = 'DashboardController/dashboard';
 
 //Menu Ubah Password
 $route['ubahpassword'] = 'UserController/ubahpassword';

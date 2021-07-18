@@ -22,7 +22,7 @@ class DashboardController extends CI_Controller
     private $jumlahvariabel = null;
     private $jumlahpegawai = null;
 
-    public function index()
+    public function dashboard()
     {
         $this->jumlahindikator = $this->IndikatorModel->jumlahIndikator();
         $this->jumlahvariabel = $this->VariabelModel->jumlahVariabel();
@@ -36,7 +36,6 @@ class DashboardController extends CI_Controller
 
         $this->load->view('index', $data_dashboard);
     }
-
 
     public function tampilPeringatan($isiPeringatan)
     {

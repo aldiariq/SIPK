@@ -29,6 +29,54 @@ class PegawaiController extends CI_Controller
     private $Status = null;
     private $Idjabatan = null;
 
+    public function aksitambahpegawai()
+    {
+        $this->Namapegawai = $this->input->post('namapegawai');
+        $this->Alamat = $this->input->post('alamat');
+        $this->Jeniskelamin = $this->input->post('jeniskelamin');
+        $this->Tempatlahir = $this->input->post('tempatlahir');
+        $this->Tanggallahir = $this->input->post('tanggallahir');
+        $this->Jeniskartuidentitas = $this->input->post('jeniskartuidentitas');
+        $this->Nokartuidentitas = $this->input->post('nokartuidentitas');
+        $this->Agama = $this->input->post('agama');
+        $this->Notelepon = $this->input->post('notelepon');
+        $this->Status = $this->input->post('status');
+        $this->Idjabatan = $this->input->post('idjabatan');
+
+        $data_pegawai = array(
+            'Namapegawai' => $this->Namapegawai,
+            'Alamat' => $this->Alamat,
+            'Jeniskelamin' => $this->Jeniskelamin,
+            'Tempatlahir' => $this->Tempatlahir,
+            'Tanggallahir' => $this->Tanggallahir,
+            'Jeniskartuidentitas' => $this->Jeniskartuidentitas,
+            'Nokartuidentitas' => $this->Nokartuidentitas,
+            'Agama' => $this->Agama,
+            'Notelepon' => $this->Notelepon,
+            'Status' => $this->Status,
+            'Idjabatan' => $this->Idjabatan
+        );
+
+        $tambah_pegawai = $this->PegawaiModel->aksitambahpegawai($data_pegawai);
+
+        if ($tambah_pegawai) {
+            $data_user = array(
+                'Idpegawai' => $this->db->insert_id(),
+                'Username' => strtolower(str_replace(' ', '', $this->Namapegawai)),
+                'Password' => md5(strtolower(str_replace(' ', '', $this->Namapegawai)))
+            );
+            $tambah_user = $this->UserModel->tambahuser($data_user);
+            if ($tambah_user) {
+                $this->tampilPeringatan("Berhasil Menambah Pegawai");
+            } else {
+                $this->tampilPeringatan("Gagal Menambah Pegawai");
+            }
+        } else {
+            $this->tampilPeringatan("Gagal Menambah Pegawai");
+        }
+        redirect('pegawai', 'refresh');
+    }
+
     public function pegawai()
     {
         $data_lihatpegawai = array(
@@ -91,67 +139,6 @@ class PegawaiController extends CI_Controller
         redirect('ubahprofil', 'refresh');
     }
 
-    public function aksitambahpegawai()
-    {
-        $this->Namapegawai = $this->input->post('namapegawai');
-        $this->Alamat = $this->input->post('alamat');
-        $this->Jeniskelamin = $this->input->post('jeniskelamin');
-        $this->Tempatlahir = $this->input->post('tempatlahir');
-        $this->Tanggallahir = $this->input->post('tanggallahir');
-        $this->Jeniskartuidentitas = $this->input->post('jeniskartuidentitas');
-        $this->Nokartuidentitas = $this->input->post('nokartuidentitas');
-        $this->Agama = $this->input->post('agama');
-        $this->Notelepon = $this->input->post('notelepon');
-        $this->Status = $this->input->post('status');
-        $this->Idjabatan = $this->input->post('idjabatan');
-
-        $data_pegawai = array(
-            'Namapegawai' => $this->Namapegawai,
-            'Alamat' => $this->Alamat,
-            'Jeniskelamin' => $this->Jeniskelamin,
-            'Tempatlahir' => $this->Tempatlahir,
-            'Tanggallahir' => $this->Tanggallahir,
-            'Jeniskartuidentitas' => $this->Jeniskartuidentitas,
-            'Nokartuidentitas' => $this->Nokartuidentitas,
-            'Agama' => $this->Agama,
-            'Notelepon' => $this->Notelepon,
-            'Status' => $this->Status,
-            'Idjabatan' => $this->Idjabatan
-        );
-
-        $tambah_pegawai = $this->PegawaiModel->aksitambahpegawai($data_pegawai);
-
-        if ($tambah_pegawai) {
-            $data_user = array(
-                'Idpegawai' => $this->db->insert_id(),
-                'Username' => strtolower(str_replace(' ', '', $this->Namapegawai)),
-                'Password' => md5(strtolower(str_replace(' ', '', $this->Namapegawai)))
-            );
-            $tambah_user = $this->UserModel->tambahuser($data_user);
-            if ($tambah_user) {
-                $this->tampilPeringatan("Berhasil Menambah Pegawai");
-            } else {
-                $this->tampilPeringatan("Gagal Menambah Pegawai");
-            }
-        } else {
-            $this->tampilPeringatan("Gagal Menambah Pegawai");
-        }
-        redirect('pegawai', 'refresh');
-    }
-
-    public function aksihapuspegawai()
-    {
-        $this->Idpegawai = $this->uri->segment(2);
-        $data_pegawai = array('Idpegawai' => $this->Idpegawai);
-        $hapus_pegawai = $this->PegawaiModel->aksihapuspegawai($data_pegawai);
-        if ($hapus_pegawai) {
-            $this->tampilPeringatan("Berhasil Menghapus Pegawai");
-        } else {
-            $this->tampilPeringatan("Gagal Menghapus Pegawai");
-        }
-        redirect('pegawai', 'refresh');
-    }
-
     public function aksiubahpegawai()
     {
         $this->Idpegawai = (int)$this->uri->segment(2);
@@ -190,6 +177,19 @@ class PegawaiController extends CI_Controller
             $this->tampilPeringatan("Berhasil Mengubah Pegawai");
         }
 
+        redirect('pegawai', 'refresh');
+    }
+
+    public function aksihapuspegawai()
+    {
+        $this->Idpegawai = $this->uri->segment(2);
+        $data_pegawai = array('Idpegawai' => $this->Idpegawai);
+        $hapus_pegawai = $this->PegawaiModel->aksihapuspegawai($data_pegawai);
+        if ($hapus_pegawai) {
+            $this->tampilPeringatan("Berhasil Menghapus Pegawai");
+        } else {
+            $this->tampilPeringatan("Gagal Menghapus Pegawai");
+        }
         redirect('pegawai', 'refresh');
     }
 

@@ -4,6 +4,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class UserModel extends CI_Model
 {
 
+    public function tambahuser($datauser)
+    {
+        $this->db->trans_begin();
+        $this->db->insert('User', $datauser);
+        $this->db->trans_complete();
+        if ($this->db->trans_status()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function aksilogin($datauser)
     {
         $cari_user = $this->db->get_where('User', $datauser);
@@ -39,18 +51,6 @@ class UserModel extends CI_Model
             } else {
                 return false;
             }
-        }
-    }
-
-    public function tambahuser($datauser)
-    {
-        $this->db->trans_begin();
-        $this->db->insert('User', $datauser);
-        $this->db->trans_complete();
-        if ($this->db->trans_status()) {
-            return true;
-        } else {
-            return false;
         }
     }
 }

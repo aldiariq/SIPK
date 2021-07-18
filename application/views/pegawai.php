@@ -195,8 +195,9 @@
                                                 <?php foreach ($jabatan as $data) {
                                                     if ($data['Jabatan'] != 'ADMIN') {
                                                 ?>
-                                                    <option value="<?php echo $data['Idjabatan'] ?>"><?php echo $data['Jabatan'] ?></option>
-                                                <?php } } ?>
+                                                        <option value="<?php echo $data['Idjabatan'] ?>"><?php echo $data['Jabatan'] ?></option>
+                                                <?php }
+                                                } ?>
                                             </select>
                                         </div>
                                     </div>

@@ -3,6 +3,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class IndikatorModel extends CI_Model
 {
+    public function aksitambahindikator($data_indikator)
+    {
+        $this->db->trans_begin();
+        $this->db->insert('Indikator', $data_indikator);
+        $this->db->trans_complete();
+        if ($this->db->trans_status()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function jumlahIndikator()
     {
@@ -28,10 +39,11 @@ class IndikatorModel extends CI_Model
         return $indikator->result_array();
     }
 
-    public function aksitambahindikator($data_indikator)
+    public function aksiubahindikator($data_indikator)
     {
         $this->db->trans_begin();
-        $this->db->insert('Indikator', $data_indikator);
+        $this->db->where(['Idindikator' => $data_indikator['Idindikator']]);
+        $this->db->update('Indikator', $data_indikator);
         $this->db->trans_complete();
         if ($this->db->trans_status()) {
             return true;
@@ -53,18 +65,6 @@ class IndikatorModel extends CI_Model
         }
     }
 
-    public function aksiubahindikator($data_indikator)
-    {
-        $this->db->trans_begin();
-        $this->db->where(['Idindikator' => $data_indikator['Idindikator']]);
-        $this->db->update('Indikator', $data_indikator);
-        $this->db->trans_complete();
-        if ($this->db->trans_status()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
 
 /* End of file IndikatorModel.php */
