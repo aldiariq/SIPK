@@ -68,9 +68,13 @@
                             <h6 class="m-0 font-weight-bold text-primary">Tabel Pegawai</h6>
                         </div>
                         <div class="card-body">
+                            <?php
+                            if ($this->session->userdata('Jabatan') == 'ADMIN') {
+                            ?>
                             <button class="btn btn-primary btn-user btn-block mb-3" data-toggle="modal" data-target="#modalPegawai">
                                 Tambah Pegawai
                             </button>
+                            <?php } ?>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="tabelPegawai" width="100%" cellspacing="0">
                                     <thead>

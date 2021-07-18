@@ -19,7 +19,7 @@ class PegawaiModel extends CI_Model
         $pegawai = $this->db->select('*');
         $pegawai = $this->db->from('Pegawai');
         $pegawai = $this->db->join('Jabatan', 'Jabatan.Idjabatan = Pegawai.Idjabatan');
-        $pegawai = $this->db->where("Jabatan.Jabatan = 'PEGAWAI'");
+        $pegawai = $this->db->where("Jabatan.Jabatan != 'ADMIN'");
         $pegawai = $this->db->get();
         return $pegawai->num_rows();
     }
@@ -29,7 +29,7 @@ class PegawaiModel extends CI_Model
         $pegawai = $this->db->select('*');
         $pegawai = $this->db->from('Pegawai');
         $pegawai = $this->db->join('Jabatan', 'Jabatan.Idjabatan = Pegawai.Idjabatan');
-        $pegawai = $this->db->where("Jabatan.Jabatan = 'PEGAWAI' OR Jabatan.Jabatan = 'DIREKTUR'");
+        $pegawai = $this->db->where("Jabatan.Jabatan != 'ADMIN'");
         $pegawai = $this->db->get();
         return $pegawai->result_array();
     }

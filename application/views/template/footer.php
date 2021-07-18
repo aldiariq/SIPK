@@ -52,6 +52,10 @@
                 $(document).ready(function() {
                     $('#tabelVariabel').DataTable();
                 });
+
+                $(document).ready(function() {
+                    $('#tabelJabatan').DataTable();
+                });
             </script>
 
             </body>

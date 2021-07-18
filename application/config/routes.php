@@ -89,3 +89,10 @@ $route['lihatindikator/(:any)'] = 'IndikatorController/lihatindikator/(:any)';
 $route['aksitambahindikator'] = 'IndikatorController/aksitambahindikator';
 $route['aksihapusindikator/(:any)'] = 'IndikatorController/aksihapusindikator/(:any)';
 $route['aksiubahindikator/(:any)'] = 'IndikatorController/aksiubahindikator/(:any)';
+
+//Menu Jabatan
+$route['jabatan'] = 'JabatanController/jabatan';
+$route['lihatjabatan/(:any)'] = 'JabatanController/lihatjabatan/(:any)';
+$route['aksitambahjabatan'] = 'JabatanController/aksitambahjabatan';
+$route['aksihapusjabatan/(:any)'] = 'JabatanController/aksihapusjabatan/(:any)';
+$route['aksiubahjabatan/(:any)'] = 'JabatanController/aksiubahjabatan/(:any)';

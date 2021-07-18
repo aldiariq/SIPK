@@ -46,6 +46,17 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Indikator</span></a>
         </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item <?php if ($this->uri->segment(1) == 'jabatan') {
+                                echo "active";
+                            } ?>">
+            <a class="nav-link" href="<?php echo base_url('jabatan') ?>">
+                <i class="fas fa-fw fa-layer-group"></i>
+                <span>Jabatan</span></a>
+        </li>
     <?php
     }
     ?>
