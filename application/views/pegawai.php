@@ -192,9 +192,11 @@
                                         <div class="form-group">
                                             <select class="form-control" name="idjabatan" required>
                                                 <option value="">Jabatan</option>
-                                                <?php foreach ($jabatan as $data) { ?>
+                                                <?php foreach ($jabatan as $data) {
+                                                    if ($data['Jabatan'] != 'ADMIN') {
+                                                ?>
                                                     <option value="<?php echo $data['Idjabatan'] ?>"><?php echo $data['Jabatan'] ?></option>
-                                                <?php } ?>
+                                                <?php } } ?>
                                             </select>
                                         </div>
                                     </div>
