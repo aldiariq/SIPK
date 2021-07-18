@@ -78,7 +78,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800 text-center"><?php echo $jumlahvariabel ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-book fa-2x text-gray-300"></i>
+                                            <i data-toggle="modal" data-target="#modalVariabeldashboard" class="fas fa-book fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800 text-center"><?php echo $jumlahindikator ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-tachometer-alt fa-2x text-gray-300"></i>
+                                            <i data-toggle="modal" data-target="#modalIndikatordashboard" class="fas fa-tachometer-alt fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -130,4 +130,54 @@
 
             </div>
             <!-- End of Main Content -->
+            <div class="modal fade" id="modalVariabeldashboard" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Daftar Variabel</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <?php foreach ($variabel as $data) { ?>
+                                    <div class="col-lg-12 mb-1">
+                                        <div class="card bg-light text-black shadow">
+                                            <div class="card-body">
+                                                <div class="text-black-100 medium"><?php echo $data['Namavariabel'] ?></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary btn-user" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalIndikatordashboard" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Daftar Indikator</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <?php foreach ($indikator as $data) { ?>
+                                    <div class="col-lg-12 mb-1">
+                                        <div class="card bg-light text-black shadow">
+                                            <div class="card-body">
+                                                <div class="text-black-100 medium"><?php echo $data['Namaindikator'] ?></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary btn-user" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <?php $this->load->view('template/footer'); ?>

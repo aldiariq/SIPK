@@ -21,17 +21,23 @@ class DashboardController extends CI_Controller
     private $jumlahindikator = null;
     private $jumlahvariabel = null;
     private $jumlahpegawai = null;
+    private $indikator;
+    private $variabel;
 
     public function dashboard()
     {
         $this->jumlahindikator = $this->IndikatorModel->jumlahIndikator();
         $this->jumlahvariabel = $this->VariabelModel->jumlahVariabel();
         $this->jumlahpegawai = $this->PegawaiModel->jumlahPegawai();
+        $this->variabel = $this->VariabelModel->ambildataVariabel();
+        $this->indikator = $this->IndikatorModel->ambildataIndikator();
 
         $data_dashboard = array(
             'jumlahindikator' => $this->jumlahindikator,
             'jumlahvariabel' => $this->jumlahvariabel,
             'jumlahpegawai' => $this->jumlahpegawai,
+            'variabel' => $this->variabel,
+            'indikator' => $this->indikator
         );
 
         $this->load->view('index', $data_dashboard);

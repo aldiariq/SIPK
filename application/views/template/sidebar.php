@@ -91,7 +91,6 @@
     <?php
     } else {
     ?>
-        <!-- Nav Item - Charts -->
         <li class="nav-item <?php if ($this->uri->segment(1) == 'penilaianpegawai') {
                                 echo "active";
                             } ?>">

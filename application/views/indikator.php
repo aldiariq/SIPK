@@ -119,7 +119,6 @@
 
             </div>
             <!-- End of Main Content -->
-            <!-- Pegawai Modal-->
             <div class="modal fade" id="modalIndikator" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <form id="formIndikator" action="<?php echo base_url('aksitambahindikator') ?>" method="POST">
