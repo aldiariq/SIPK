@@ -21,4 +21,6 @@
     <!-- Custom styles for this page -->
     <link href="<?php echo base_url('assets/assetsdashboard/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
 
+    <link href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.bootstrap4.min.css" rel="stylesheet">
+
 </head>

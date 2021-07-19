@@ -96,3 +96,10 @@ $route['lihatjabatan/(:any)'] = 'JabatanController/lihatjabatan/(:any)';
 $route['aksitambahjabatan'] = 'JabatanController/aksitambahjabatan';
 $route['aksihapusjabatan/(:any)'] = 'JabatanController/aksihapusjabatan/(:any)';
 $route['aksiubahjabatan/(:any)'] = 'JabatanController/aksiubahjabatan/(:any)';
+
+//Menu Jabatan
+$route['penilaianpegawai'] = 'PenilaianpegawaiController/penilaianpegawai';
+$route['lihatpenilaianpegawai/(:any)'] = 'PenilaianpegawaiController/lihatpenilaianpegawai/(:any)';
+$route['aksitambahpenilaianpegawai'] = 'PenilaianpegawaiController/aksitambahpenilaianpegawai';
+$route['aksihapuspenilaianpegawai/(:any)'] = 'PenilaianpegawaiController/aksihapuspenilaianpegawai/(:any)';
+$route['aksiubahpenilaianpegawai/(:any)'] = 'PenilaianpegawaiController/aksiubahpenilaianpegawai/(:any)';
