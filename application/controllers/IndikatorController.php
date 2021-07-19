@@ -18,6 +18,7 @@ class IndikatorController extends CI_Controller
 
     private $Idindikator = null;
     private $Namaindikator = null;
+    private $Nilairentang = null;
     private $Bobotindikator = null;
     private $Nilaipembanding = null;
     private $Idvariabel = null;
@@ -25,12 +26,14 @@ class IndikatorController extends CI_Controller
     public function aksitambahindikator()
     {
         $this->Namaindikator = strtoupper($this->input->post('namaindikator'));
+        $this->Nilairentang = $this->input->post('nilairentang');
         $this->Bobotindikator = $this->input->post('bobotindikator');
         $this->Nilaipembanding = $this->input->post('nilaipembanding');
         $this->Idvariabel = $this->input->post('idvariabel');
 
         $data_indikator = array(
             'Namaindikator' => $this->Namaindikator,
+            'Nilairentang' => $this->Nilairentang,
             'Bobotindikator' => $this->Bobotindikator,
             'Nilaipembanding' => $this->Nilaipembanding,
             'Idvariabel' => $this->Idvariabel
@@ -69,6 +72,7 @@ class IndikatorController extends CI_Controller
     {
         $this->Idindikator = (int)$this->uri->segment(2);
         $this->Namaindikator = strtoupper($this->input->post('namaindikator'));
+        $this->Nilairentang = $this->input->post('nilairentang');
         $this->Bobotindikator = $this->input->post('bobotindikator');
         $this->Nilaipembanding = $this->input->post('nilaipembanding');
         $this->Idvariabel = $this->input->post('idvariabel');
@@ -76,6 +80,7 @@ class IndikatorController extends CI_Controller
         $data_indikator = array(
             'Idindikator' => $this->Idindikator,
             'Namaindikator' => $this->Namaindikator,
+            'Nilairentang' => $this->Nilairentang,
             'Bobotindikator' => $this->Bobotindikator,
             'Nilaipembanding' => $this->Nilaipembanding,
             'Idvariabel' => $this->Idvariabel

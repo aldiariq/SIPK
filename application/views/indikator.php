@@ -76,6 +76,7 @@
                                     <thead>
                                         <tr>
                                             <th>Nama Indikator</th>
+                                            <th>Nilai Rentang</th>
                                             <th>Bobot (%)</th>
                                             <th>Nilai Pembanding</th>
                                             <th>Nama Variabel</th>
@@ -85,6 +86,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>Nama Indikator</th>
+                                            <th>Nilai Rentang</th>
                                             <th>Bobot (%)</th>
                                             <th>Nilai Pembanding</th>
                                             <th>Nama Variabel</th>
@@ -95,6 +97,7 @@
                                         <?php foreach ($indikator as $data) { ?>
                                             <tr>
                                                 <td><?= $data['Namaindikator'] ?></td>
+                                                <td><?= $data['Nilairentang'] ?></td>
                                                 <td><?= $data['Bobotindikator'] ?></td>
                                                 <td><?= $data['Nilaipembanding'] ?></td>
                                                 <td><?= $data['Namavariabel'] ?></td>
@@ -133,6 +136,9 @@
                                             <input type="text" name="namaindikator" class="form-control form-control-user" placeholder="Nama Indikator" required>
                                         </div>
                                         <div class="form-group">
+                                            <input type="number" name="nilairentang" class="form-control form-control-user" placeholder="Nilai Rentang" required>
+                                        </div>
+                                        <div class="form-group">
                                             <input type="number" name="bobotindikator" class="form-control form-control-user" placeholder="Bobot Indikator" required>
                                         </div>
                                         <div class="form-group">
@@ -166,6 +172,7 @@
                         success: function(res) {
                             document.getElementById('formIndikator').action = url + 'aksiubahindikator/' + idindikator
                             document.getElementsByName("namaindikator")[0].value = res[0].Namaindikator;
+                            document.getElementsByName("nilairentang")[0].value = res[0].Nilairentang;
                             document.getElementsByName("bobotindikator")[0].value = res[0].Bobotindikator;
                             document.getElementsByName("nilaipembanding")[0].value = res[0].Nilaipembanding;
                             document.getElementsByName("idvariabel")[0].value = res[0].Idvariabel;
@@ -176,6 +183,7 @@
                 function kosongkanForm(url) {
                     document.getElementById('formIndikator').action = url + 'aksitambahindikator'
                     document.getElementsByName("namaindikator")[0].value = "";
+                    document.getElementsByName("nilairentang")[0].value = res[0].Nilairentang;
                     document.getElementsByName("bobotindikator")[0].value = "";
                     document.getElementsByName("nilaipembanding")[0].value = "";
                     document.getElementsByName("idvariabel")[0].value = "";
