@@ -77,8 +77,8 @@
                                         <tr>
                                             <th>Nama Indikator</th>
                                             <th>Nilai Rentang</th>
-                                            <th>Bobot (%)</th>
                                             <th>Nilai Pembanding</th>
+                                            <th>Bobot (%)</th>
                                             <th>Nama Variabel</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -87,8 +87,8 @@
                                         <tr>
                                             <th>Nama Indikator</th>
                                             <th>Nilai Rentang</th>
-                                            <th>Bobot (%)</th>
                                             <th>Nilai Pembanding</th>
+                                            <th>Bobot (%)</th>
                                             <th>Nama Variabel</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -98,8 +98,8 @@
                                             <tr>
                                                 <td><?= $data['Namaindikator'] ?></td>
                                                 <td><?= $data['Nilairentang'] ?></td>
-                                                <td><?= $data['Bobotindikator'] ?></td>
                                                 <td><?= $data['Nilaipembanding'] ?></td>
+                                                <td><?= $data['Bobotindikator'] ?></td>
                                                 <td><?= $data['Namavariabel'] ?></td>
                                                 <td>
                                                     <a href="#" onclick="isiForm('<?= base_url('') ?>','<?= $data['Idindikator'] ?>')" data-toggle="modal" data-target="#modalIndikator" role="button">
@@ -139,10 +139,10 @@
                                             <input type="number" name="nilairentang" class="form-control form-control-user" placeholder="Nilai Rentang" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="number" name="bobotindikator" class="form-control form-control-user" placeholder="Bobot Indikator" required>
+                                            <input type="number" name="nilaipembanding" class="form-control form-control-user" placeholder="Nilai Pembanding" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="number" name="nilaipembanding" class="form-control form-control-user" placeholder="Nilai Pembanding" required>
+                                            <input type="number" name="bobotindikator" class="form-control form-control-user" placeholder="Bobot Indikator" required>
                                         </div>
                                         <div class="form-group">
                                             <select class="form-control" name="idvariabel" required>
@@ -173,8 +173,8 @@
                             document.getElementById('formIndikator').action = url + 'aksiubahindikator/' + idindikator
                             document.getElementsByName("namaindikator")[0].value = res[0].Namaindikator;
                             document.getElementsByName("nilairentang")[0].value = res[0].Nilairentang;
-                            document.getElementsByName("bobotindikator")[0].value = res[0].Bobotindikator;
                             document.getElementsByName("nilaipembanding")[0].value = res[0].Nilaipembanding;
+                            document.getElementsByName("bobotindikator")[0].value = res[0].Bobotindikator;
                             document.getElementsByName("idvariabel")[0].value = res[0].Idvariabel;
                         }
                     });
@@ -184,8 +184,8 @@
                     document.getElementById('formIndikator').action = url + 'aksitambahindikator'
                     document.getElementsByName("namaindikator")[0].value = "";
                     document.getElementsByName("nilairentang")[0].value = res[0].Nilairentang;
-                    document.getElementsByName("bobotindikator")[0].value = "";
                     document.getElementsByName("nilaipembanding")[0].value = "";
+                    document.getElementsByName("bobotindikator")[0].value = "";
                     document.getElementsByName("idvariabel")[0].value = "";
                 }
             </script>

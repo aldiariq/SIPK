@@ -40,6 +40,7 @@
             <script src="<?php echo base_url('assets/assetsdashboard/vendor/datatables/jquery.dataTables.min.js') ?>"></script>
             <script src="<?php echo base_url('assets/assetsdashboard/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
 
+            <!-- <script src="https://code.jquery.com/jquery"></script> -->
             <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
             <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.bootstrap4.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -66,73 +67,53 @@
                     $('#tabelJabatan').DataTable();
                 });
 
-                $(document).ready(function() {
-                    $('#tabelPenilaianpegawai').DataTable({
-                        "dom": "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>" +
-                            "<'row'<'col-sm-12'tr>>" +
-                            "<'row'<'col-sm-6'i><'col-sm-6'p>>",
-                        "buttons": [{
-                            extend: 'collection',
-                            text: 'Export',
-                            buttons: [
-                                'copy',
-                                {
-                                    extend: 'pdf',
-                                    text: 'PDF',
-                                    title: 'Laporan Penilaian Pegawai',
-                                    exportOptions: {
-                                        modifier: {
-                                            // DataTables core
-                                            order: 'index', // 'current', 'applied',
-                                            //'index', 'original'
-                                            page: 'all', // 'all', 'current'
-                                            search: 'applied' // 'none', 'applied', 'removed'
-                                        },
-                                        columns: [0, 1, 2, 3, 4, 5, 6]
-                                    }
-                                },
-                                {
-                                    extend: 'excel',
-                                    text: 'Excel',
-                                    title: 'Laporan Penilaian Pegawai',
-                                    exportOptions: {
-                                        modifier: {
-                                            // DataTables core
-                                            order: 'index', // 'current', 'applied',
-                                            //'index', 'original'
-                                            page: 'all', // 'all', 'current'
-                                            search: 'applied' // 'none', 'applied', 'removed'
-                                        },
-                                        columns: [0, 1, 2, 3, 4, 5, 6]
-                                    }
-                                },
-                            ],
-                            exportOptions: {
-                                columns: 'th:not(:last-child)'
-                            }
-                        }],
-                        initComplete: function() {
-                            this.api().columns().every(function() {
-                                var column = this;
-                                var select = $('<select class="form-control"><option value=""></option></select>')
-                                    .appendTo($(column.footer()).empty())
-                                    .on('change', function() {
-                                        var val = $.fn.dataTable.util.escapeRegex(
-                                            $(this).val()
-                                        );
-
-                                        column
-                                            .search(val ? '^' + val + '$' : '', true, false)
-                                            .draw();
-                                    });
-
-                                column.data().unique().sort().each(function(d, j) {
-                                    select.append('<option value="' + d + '">' + d + '</option>')
-                                });
-                            });
-                        }
-                    });
-                });
+                // $(document).ready(function() {
+                //     $('#tabelPenilaianpegawai').DataTable({
+                //         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                //         "dom": "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>" +
+                //             "<'row'<'col-sm-12'tr>>" +
+                //             "<'row'<'col-sm-6'i><'col-sm-6'p>>",
+                //         "buttons": [{
+                //             extend: 'collection',
+                //             text: 'Export',
+                //             buttons: [
+                //                 'copy',
+                //                 {
+                //                     extend: 'pdf',
+                //                     text: 'PDF',
+                //                     title: 'Laporan Penilaian Pegawai',
+                //                     orientation: 'portrait',
+                //                     pageSize: 'A4',
+                //                     exportOptions: {
+                //                         modifier: {
+                //                             // DataTables core
+                //                             order: 'index', // 'current', 'applied',
+                //                             //'index', 'original'
+                //                             page: 'all', // 'all', 'current'
+                //                             search: 'applied' // 'none', 'applied', 'removed'
+                //                         },
+                //                         columns: [0, 1, 2, 3],
+                //                     }
+                //                 },
+                //                 {
+                //                     extend: 'excel',
+                //                     text: 'Excel',
+                //                     title: 'Laporan Penilaian Pegawai',
+                //                     exportOptions: {
+                //                         modifier: {
+                //                             // DataTables core
+                //                             order: 'index', // 'current', 'applied',
+                //                             //'index', 'original'
+                //                             page: 'all', // 'all', 'current'
+                //                             search: 'applied' // 'none', 'applied', 'removed'
+                //                         },
+                //                         columns: [0, 1, 2, 3]
+                //                     }
+                //                 },
+                //             ]
+                //         }],
+                //     });
+                // });
             </script>
 
             </body>
